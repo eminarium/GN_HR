@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_no: 1
+  order_date: 2018-03-17
+  order_title: MyString
+  prefix: MyString
+  postfix: MyString
+  order_scan_path: MyString
+  notes: MyText
+
+two:
+  order_no: 1
+  order_date: 2018-03-17
+  order_title: MyString
+  prefix: MyString
+  postfix: MyString
+  order_scan_path: MyString
+  notes: MyText

@@ -1,0 +1,3 @@
+$("#education-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Okuw Maglumatyny Üýtget  - <i><b><%= @education.institution_title %></b></i></h3>");
+$("#education-modal").modal("show")

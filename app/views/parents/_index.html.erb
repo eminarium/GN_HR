@@ -1,0 +1,15 @@
+<% @parents.each do |parent| %>
+    <tr>
+      <td><%= parent.employee.first_name+" "+parent.employee.last_name %></td>
+      <td><%= parent.parent_type.parent_type_title %></td>
+      <td><%= parent.first_name %></td>
+      <td><%= parent.last_name %></td>
+      <td><%= parent.patronymic %></td>
+      <td><%= parent.gender %></td>
+      <td><%= parent.dob.strftime("%d-%m-%Y") %></td>
+      <td><%= parent.notes %></td>
+      <td><%= link_to "Giňişleýin", parent, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_parent_path(parent), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", parent_delete_path(parent), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

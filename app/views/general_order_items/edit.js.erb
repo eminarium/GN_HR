@@ -1,0 +1,3 @@
+$("#general_order_item-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Umumy Buýruk Maddasynyň Maglumatyny Üýtget  - <i><b><%= @general_order_item.id %></b></i></h3>");
+$("#general_order_item-modal").modal("show")

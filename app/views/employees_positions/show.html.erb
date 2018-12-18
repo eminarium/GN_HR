@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @employees_position.employee %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @employees_position.position %>
+</p>
+
+<p>
+  <strong>Position type:</strong>
+  <%= @employees_position.position_type %>
+</p>
+
+<p>
+  <strong>Is released:</strong>
+  <%= @employees_position.is_released %>
+</p>
+
+<p>
+  <strong>Is changed:</strong>
+  <%= @employees_position.is_changed %>
+</p>
+
+<p>
+  <strong>Assigned date:</strong>
+  <%= @employees_position.assigned_date %>
+</p>
+
+<p>
+  <strong>Assign Notes:</strong>
+  <%= @employees_position.assign_notes %>
+</p>
+
+<p>
+  <strong>Released date:</strong>
+  <%= @employees_position.released_date %>
+</p>
+
+<p>
+  <strong>Release reason:</strong>
+  <%= @employees_position.release_reason %>
+</p>
+
+<p>
+  <strong>Is temporary:</strong>
+  <%= @employees_position.is_temporary %>
+</p>
+
+<p>
+  <strong>Temporary start date:</strong>
+  <%= @employees_position.temporary_start_date %>
+</p>
+
+<p>
+  <strong>Temporary end date:</strong>
+  <%= @employees_position.temporary_end_date %>
+</p>
+
+<p>
+  <strong>Release Notes:</strong>
+  <%= @employees_position.release_notes %>
+</p>
+
+<%= link_to 'Edit', edit_employees_position_path(@employees_position) %> |
+<%= link_to 'Back', employees_positions_path %>

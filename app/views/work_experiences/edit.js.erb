@@ -1,0 +1,3 @@
+$("#work_experience-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Iş Maglumatyny Üýtget  - <i><b><%= @work_experience.organization_title %></b></i></h3>");
+$("#work_experience-modal").modal("show")

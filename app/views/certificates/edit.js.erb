@@ -1,0 +1,3 @@
+$("#certificate-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Sertifikat Maglumatyny Üýtget  - <i><b><%= @certificate.certificate_title %></b></i></h3>");
+$("#certificate-modal").modal("show")

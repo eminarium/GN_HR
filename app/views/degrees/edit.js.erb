@@ -1,0 +1,3 @@
+$("#degree-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Okuw Dereje Maglumatyny Üýtget  - <i><b><%= @degree.degree_title %></b></i></h3>");
+$("#degree-modal").modal("show")

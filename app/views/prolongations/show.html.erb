@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employees position:</strong>
+  <%= @prolongation.employees_position %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @prolongation.start_date %>
+</p>
+
+<p>
+  <strong>Is temporary:</strong>
+  <%= @prolongation.is_temporary %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @prolongation.end_date %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @prolongation.order %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @prolongation.notes %>
+</p>
+
+<%= link_to 'Edit', edit_prolongation_path(@prolongation) %> |
+<%= link_to 'Back', prolongations_path %>

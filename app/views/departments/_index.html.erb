@@ -1,0 +1,23 @@
+<% @departments.each do |department| %>
+    <tr>
+      <td><%= department.department_title %></td>
+      <td>
+        <% if (department.parent_department_id != 0) %>
+            <%= Department.find_by_id(department.parent_department_id).department_title %>
+        <% else %>
+            -
+        <% end %>
+      </td>
+      <td>
+        <% if (department.is_open) %>
+            <div style="color:limegreen; font-weight: bold">Açyk</div>
+        <% else %>
+            <div style="color:red; font-weight: bold">Ýapyk</div>
+        <% end %>
+      </td>
+      <td><%= department.notes %></td>
+      <td><%= link_to "Giňişleýin", department, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_department_path(department), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", department_delete_path(department), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @address_type.errors.any? %>
+    <% @address_type.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".address_type-index").html("<%= escape_javascript(render 'index') %>")
+    $("#address_type-modal").modal("hide")
+<% end %>

@@ -1,0 +1,17 @@
+<% @cities.each do |city| %>
+    <tr>
+      <td><%= city.city_name %></td>
+      <td>
+        <% if (city.state_id != 0) %>
+            <%= State.find_by_id(city.state_id).state_name %>
+        <% else %>
+            -
+        <% end %>
+      </td>
+      <td><%= city.notes %></td>
+      <td><%= link_to "Giňişleýin", city, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_city_path(city), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", city_delete_path(city), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

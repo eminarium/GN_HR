@@ -1,0 +1,9 @@
+<% @parent_types.each do |parent_type| %>
+    <tr>
+      <td><%= parent_type.parent_type_title %></td>
+      <td><%= parent_type.notes %></td>
+      <td><%= link_to "Giňişleýin", parent_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_parent_type_path(parent_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", parent_type_delete_path(parent_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

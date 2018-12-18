@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address_type_title: MyString
+  notes: MyText
+
+two:
+  address_type_title: MyString
+  notes: MyText

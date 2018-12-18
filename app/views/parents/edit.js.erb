@@ -1,0 +1,3 @@
+$("#parent-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Garyndaş Maglumatyny Üýtget  - <i><b><%= @parent.first_name %></b></i></h3>");
+$("#parent-modal").modal("show")

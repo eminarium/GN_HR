@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from webapplayers.com/homer_admin-v2.0/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Oct 2017 22:23:24 GMT -->
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Page title -->
+  <title>HOMER | WebApp admin theme</title>
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
+
+  <!-- Vendor styles -->
+  <link href="<%= asset_path('vendor/fontawesome/css/font-awesome.css') %>" rel="stylesheet">
+
+  <link href="<%= asset_path('vendor/metisMenu/dist/metisMenu.css') %>" rel="stylesheet">
+  <link href="<%= asset_path('vendor/animate.css/animate.css') %>" rel="stylesheet">
+  <link href="<%= asset_path('vendor/bootstrap/dist/css/bootstrap.css') %>" rel="stylesheet">
+  <link href="<%= asset_path('vendor/datatables.net-bs/css/dataTables.bootstrap.min.css') %>" rel="stylesheet">
+
+
+  <!-- App styles -->
+  <link href="<%= asset_path('fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css') %>" rel="stylesheet">
+  <link href="<%= asset_path('fonts/pe-icon-7-stroke/css/helper.css') %>" rel="stylesheet">
+  <link href="<%= asset_path('styles/style.css') %>" rel="stylesheet">
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+
+
+</head>
+<body class="fixed-navbar sidebar-scroll">
+
+<!-- Skin option / for demo purpose only -->
+<!--
+<div class="skin-option animated fadeInRight">
+  <a href="light-shadow/index.html" target="_blank">
+    <small class="font-bold text-muted"> New <span class="text-success"> Light-Shadow</span> <br/>Skin for Homer 2.0 </small>
+    <img class="img-responsive m-t-xs" src="images/light-skin.png"/>
+  </a>
+</div>
+-->
+<style>
+    .skin-option {
+        position: fixed;
+        text-align: center;
+        right: -1px;
+        padding: 10px;
+        top: 80px;
+        width: 150px;
+        height: 133px;
+        text-transform: uppercase;
+        background-color: #ffffff;
+        box-shadow: 0 1px 10px 0px rgba(0, 0, 0, 0.05), 10px 12px 7px 3px rgba(0, 0, 0, .1);
+        border-radius: 4px 0 0 4px;
+        z-index: 100;
+    }
+</style>
+<!-- End skin option / for demo purpose only -->
+
+<%= render 'layouts/header' %>
+
+<%= render 'layouts/sidebar' %>
+
+<!-- Main Wrapper -->
+
+
+<div id="wrapper">
+
+    <%= yield %>
+
+  <%= render 'layouts/right_sidebar' %>
+
+  <%= render 'layouts/footer' %>
+
+
+</div>
+
+<!-- Vendor scripts -->
+<script src="<%= asset_path('vendor/jquery/dist/jquery.min.js') %>"></script>
+<script src="<%= asset_path('vendor/jquery-ui/jquery-ui.min.js') %>"></script>
+<script src="<%= asset_path('vendor/slimScroll/jquery.slimscroll.min.js') %>"></script>
+<script src="<%= asset_path('vendor/bootstrap/dist/js/bootstrap.min.js') %>"></script>
+<script src="<%= asset_path('vendor/jquery-flot/jquery.flot.js') %>"></script>
+<script src="<%= asset_path('vendor/jquery-flot/jquery.flot.resize.js') %>"></script>
+<script src="<%= asset_path('vendor/jquery-flot/jquery.flot.pie.js') %>"></script>
+<script src="<%= asset_path('vendor/flot.curvedlines/curvedLines.js') %>"></script>
+<script src="<%= asset_path('vendor/jquery.flot.spline/index.js') %>"></script>
+<script src="<%= asset_path('vendor/metisMenu/dist/metisMenu.min.js') %>"></script>
+<script src="<%= asset_path('vendor/iCheck/icheck.min.js') %>"></script>
+<script src="<%= asset_path('vendor/peity/jquery.peity.min.js') %>"></script>
+<script src="<%= asset_path('vendor/sparkline/index.js') %>"></script>
+
+<!-- DataTables -->
+<script src="<%= asset_path('vendor/datatables/media/js/jquery.dataTables.min.js') %>"></script>
+<script src="<%= asset_path('vendor/datatables.net-bs/js/dataTables.bootstrap.min.js') %>"></script>
+
+<!-- DataTables buttons scripts -->
+<script src="<%= asset_path('vendor/pdfmake/build/pdfmake.min.js') %>"></script>
+<script src="<%= asset_path('vendor/pdfmake/build/vfs_fonts.js') %>"></script>
+<script src="<%= asset_path('vendor/datatables.net-buttons/js/buttons.html5.min.js') %>"></script>
+<script src="<%= asset_path('vendor/datatables.net-buttons/js/buttons.print.min.js') %>"></script>
+<script src="<%= asset_path('vendor/datatables.net-buttons/js/dataTables.buttons.min.js') %>"></script>
+<script src="<%= asset_path('vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.j') %>"></script>
+
+
+<!-- App scripts -->
+<script src="<%= asset_path('scripts/homer.js') %>"></script>
+<script src="<%= asset_path('scripts/charts.js') %>"></script>
+
+<script>
+
+    $(function () {
+
+        /**
+         * Flot charts data and options
+         */
+        var data1 = [ [0, 55], [1, 48], [2, 40], [3, 36], [4, 40], [5, 60], [6, 50], [7, 51] ];
+        var data2 = [ [0, 56], [1, 49], [2, 41], [3, 38], [4, 46], [5, 67], [6, 57], [7, 59] ];
+
+        var chartUsersOptions = {
+            series: {
+                splines: {
+                    show: true,
+                    tension: 0.4,
+                    lineWidth: 1,
+                    fill: 0.4
+                }
+            },
+            grid: {
+                tickColor: "#f0f0f0",
+                borderWidth: 1,
+                borderColor: 'f0f0f0',
+                color: '#6a6c6f'
+            },
+            colors: [ "#62cb31", "#efefef"]
+        };
+
+        $.plot($("#flot-line-chart"), [data1, data2], chartUsersOptions);
+
+        /**
+         * Flot charts 2 data and options
+         */
+        var chartIncomeData = [
+            {
+                label: "line",
+                data: [ [1, 10], [2, 26], [3, 16], [4, 36], [5, 32], [6, 51] ]
+            }
+        ];
+
+        var chartIncomeOptions = {
+            series: {
+                lines: {
+                    show: true,
+                    lineWidth: 0,
+                    fill: true,
+                    fillColor: "#64cc34"
+
+                }
+            },
+            colors: ["#62cb31"],
+            grid: {
+                show: false
+            },
+            legend: {
+                show: false
+            }
+        };
+
+        $.plot($("#flot-income-chart"), chartIncomeData, chartIncomeOptions);
+
+
+
+    });
+
+</script>
+
+</body>
+
+<!-- Mirrored from webapplayers.com/homer_admin-v2.0/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Oct 2017 22:23:52 GMT -->
+</html>

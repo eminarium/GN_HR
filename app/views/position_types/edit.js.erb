@@ -1,0 +1,3 @@
+$("#position_type-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Iş Görnüşi Maglumatyny Üýtget  - <i><b><%= @position_type.position_type_title %></b></i></h3>");
+$("#position_type-modal").modal("show")

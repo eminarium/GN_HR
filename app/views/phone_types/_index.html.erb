@@ -1,0 +1,9 @@
+<% @phone_types.each do |phone_type| %>
+    <tr>
+      <td><%= phone_type.phone_type_title %></td>
+      <td><%= phone_type.notes %></td>
+      <td><%= link_to "Giňişleýin", phone_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_phone_type_path(phone_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", phone_type_delete_path(phone_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

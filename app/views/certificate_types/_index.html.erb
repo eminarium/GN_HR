@@ -1,0 +1,10 @@
+<% @certificate_types.each do |certificate_type| %>
+    <tr>
+      <td><%= certificate_type.certificate_type_title %></td>
+      <td><%= certificate_type.notes %></td>
+
+      <td><%= link_to "Giňişleýin", certificate_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_certificate_type_path(certificate_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", certificate_type_delete_path(certificate_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

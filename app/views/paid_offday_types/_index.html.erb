@@ -1,0 +1,9 @@
+<% @paid_offday_types.each do |paid_offday_type| %>
+    <tr>
+      <td><%= paid_offday_type.paid_offday_type_title %></td>
+      <td><%= paid_offday_type.notes %></td>
+      <td><%= link_to "Giňişleýin", paid_offday_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_paid_offday_type_path(paid_offday_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", paid_offday_type_delete_path(paid_offday_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

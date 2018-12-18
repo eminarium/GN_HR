@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @certificate.errors.any? %>
+    <% @certificate.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".certificate-index").html("<%= escape_javascript(render 'index') %>")
+    $("#certificate-modal").modal("hide")
+<% end %>

@@ -1,0 +1,14 @@
+<% @unpaid_offdays.each do |unpaid_offday| %>
+    <tr>
+      <td><%= unpaid_offday.employee.first_and_last_name %></td>
+      <td><%= unpaid_offday.unpaid_offday_type.unpaid_offday_type_title %></td>
+      <td><%= unpaid_offday.order.order_no  %></td>
+      <td><%= unpaid_offday.start_date.strftime("%d-%m-%Y") %></td>
+      <td><%= unpaid_offday.return_date.strftime("%d-%m-%Y") %></td>
+      <td><%= unpaid_offday.day_quantity %></td>
+      <td><%= unpaid_offday.notes %></td>
+      <td><%= link_to "Giňişleýin", unpaid_offday, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_unpaid_offday_path(unpaid_offday), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", unpaid_offday_delete_path(unpaid_offday), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

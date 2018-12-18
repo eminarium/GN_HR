@@ -1,0 +1,144 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="color-line"></div>
+
+    <div class="modal-header text-center">
+      <h4 class="modal-title">Modal title</h4>
+      <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+    </div>
+
+    <%= form_for @address, remote: true, html: { style: "display:inline;" } do |f| %>
+
+        <div class="modal-body">
+          <ul class="errors"></ul>
+
+                <div class="form-group">
+                  <%= f.label "Salgy Görnüşi : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:address_type_id, @address_types, :id, :address_type_title, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Işgär : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:employee_id, @employees, :id, :first_and_last_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Ýurdy : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:country_id, @countries, :id, :country_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Ýerli şäheri : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:city_id, @cities, :id, :city_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Daşary ýurt şäheri : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:foreign_city_id, @foreign_cities, :id, :foreign_city_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Welaýaty : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:state_id, @states, :id, :state_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Etraby : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:region_id, @regions, :id, :region_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Şäherçe : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:county_id, @counties, :id, :county_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Obasy : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_field :village, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Kwartaly : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_field :quartal, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Geçelge : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_field :street_passage, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Köçesi : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_field :street, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Jaýy : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_field :apartment, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Otagy : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_field :flat, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Başlangyç Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.date_select :register_start_date, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Tamamlanýan Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.date_select :register_end_date, :type => "text", class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+
+                <div class="form-group">
+                  <%= f.label "Bellikler : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.text_area :notes, :type => "text",class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="modal-footer">
+                  <%= f.submit "Kabul Et", class: "btn btn-primary" %>
+                  <%= link_to "Goýbolsun", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+                </div>
+        </div>
+    <% end %>
+
+  </div>
+</div>

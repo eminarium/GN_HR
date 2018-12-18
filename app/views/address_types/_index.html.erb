@@ -1,0 +1,10 @@
+<% @address_types.each do |address_type| %>
+    <tr>
+      <td><%= address_type.address_type_title %></td>
+      <td><%= address_type.notes %></td>
+
+      <td><%= link_to "Giňişleýin", address_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_address_type_path(address_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", address_type_delete_path(address_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

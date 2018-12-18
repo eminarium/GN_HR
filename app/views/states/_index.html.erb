@@ -1,0 +1,9 @@
+<% @states.each do |state| %>
+    <tr>
+      <td><%= state.state_name %></td>
+      <td><%= state.notes %></td>
+      <td><%= link_to "Giňişleýin", state, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_state_path(state), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz",state_delete_path(state), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

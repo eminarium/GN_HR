@@ -1,0 +1,3 @@
+$("#address_type-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Salgy Görnüşi Maglumatyny Üýtget  - <i><b><%= @address_type.address_type_title %></b></i></h3>");
+$("#address_type-modal").modal("show")

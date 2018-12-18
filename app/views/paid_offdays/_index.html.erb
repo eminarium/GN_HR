@@ -1,0 +1,14 @@
+<% @paid_offdays.each do |paid_offday| %>
+    <tr>
+      <td><%= paid_offday.employee.first_and_last_name %></td>
+      <td><%= paid_offday.paid_offday_type.paid_offday_type_title %></td>
+      <td><%= paid_offday.order.order_no  %></td>
+      <td><%= paid_offday.start_date.strftime("%d-%m-%Y") %></td>
+      <td><%= paid_offday.return_date.strftime("%d-%m-%Y") %></td>
+      <td><%= paid_offday.day_quantity %></td>
+      <td><%= paid_offday.notes %></td>
+      <td><%= link_to "Giňişleýin", paid_offday, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_paid_offday_path(paid_offday), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", paid_offday_delete_path(paid_offday), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

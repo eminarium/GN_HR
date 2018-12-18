@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @foreign_city.country %>
+</p>
+
+<p>
+  <strong>Foreign city name:</strong>
+  <%= @foreign_city.foreign_city_name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @foreign_city.notes %>
+</p>
+
+<%= link_to 'Edit', edit_foreign_city_path(@foreign_city) %> |
+<%= link_to 'Back', foreign_cities_path %>

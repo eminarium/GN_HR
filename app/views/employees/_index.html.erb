@@ -1,0 +1,16 @@
+<% @employees.each do |employee| %>
+    <tr>
+      <td><%= employee.photo_url %></td>
+      <td><%= employee.last_name %></td>
+      <td><%= employee.first_name %></td>
+      <td><%= employee.patronymic %></td>
+      <td><%= employee.dob.strftime("%d-%m-%Y") %></td>
+      <td><%= employee.is_local %></td>
+      <td><%= employee.notes %></td>
+
+      <td><%= link_to "Giňişleýin", employee, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_employee_path(employee), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", employee_delete_path(employee), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

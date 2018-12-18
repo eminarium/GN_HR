@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @release_reason.errors.any? %>
+    <% @release_reason.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".release_reason-index").html("<%= escape_javascript(render 'index') %>")
+    $("#release_reason-modal").modal("hide")
+<% end %>

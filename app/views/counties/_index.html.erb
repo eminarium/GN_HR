@@ -1,0 +1,11 @@
+<% @counties.each do |county| %>
+    <tr>
+      <td><%= county.county_name %></td>
+      <td><%= county.state.state_name %></td>
+      <td><%= county.notes %></td>
+
+      <td><%= link_to "Giňişleýin", county, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_county_path(county), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", county_delete_path(county), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

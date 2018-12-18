@@ -1,0 +1,11 @@
+<% @regions.each do |region| %>
+    <tr>
+      <td><%= region.region_name %></td>
+      <td><%= region.state.state_name %></td>
+      <td><%= region.notes %></td>
+
+      <td><%= link_to "Giňişleýin", region, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_region_path(region), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", region_delete_path(region), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

@@ -1,0 +1,12 @@
+<% @general_order_items.each do |general_order_item| %>
+    <tr>
+      <td><%= general_order_item.employee.first_and_last_name %></td>
+      <td><%= general_order_item.order.order_no  %></td>
+      <td><%= general_order_item.order_item_date  %></td>
+      <td><%= general_order_item.order_item_topic %></td>
+      <td><%= general_order_item.order_item_content %></td>
+      <td><%= link_to "Giňişleýin", general_order_item, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_general_order_item_path(general_order_item), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", general_order_item_delete_path(general_order_item), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

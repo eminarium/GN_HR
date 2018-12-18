@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @region.errors.any? %>
+    <% @region.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".region-index").html("<%= escape_javascript(render 'index') %>")
+    $("#region-modal").modal("hide")
+<% end %>

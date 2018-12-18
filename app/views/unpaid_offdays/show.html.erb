@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @unpaid_offday.employee %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @unpaid_offday.order %>
+</p>
+
+<p>
+  <strong>unpaid offday type:</strong>
+  <%= @unpaid_offday.unpaid_offday_type %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @unpaid_offday.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @unpaid_offday.return_date %>
+</p>
+
+<p>
+  <strong>Day quantity:</strong>
+  <%= @unpaid_offday.day_quantity %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @unpaid_offday.notes %>
+</p>
+
+<%= link_to 'Edit', edit_unpaid_offday_path(@unpaid_offday) %> |
+<%= link_to 'Back', unpaid_offdays_path %>

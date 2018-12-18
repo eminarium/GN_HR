@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @warning.employee %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @warning.order %>
+</p>
+
+<p>
+  <strong>Warning reason:</strong>
+  <%= @warning.warning_reason %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @warning.notes %>
+</p>
+
+<%= link_to 'Edit', edit_warning_path(@warning) %> |
+<%= link_to 'Back', warnings_path %>

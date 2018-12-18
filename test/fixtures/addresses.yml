@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address_type_id: 
+  employee_id: 
+  country_id: 
+  city_id: 
+  foreign_city_id: 
+  state_id: 
+  region_id: 
+  county_id: 
+  street: MyString
+  apartment: MyString
+  flat: 1
+  village: MyString
+  quartal: MyString
+  rayon: MyString
+  street_passage: MyString
+  register_start_date: 2017-11-15
+  register_end_date: 2017-11-15
+  notes: MyText
+
+two:
+  address_type_id: 
+  employee_id: 
+  country_id: 
+  city_id: 
+  foreign_city_id: 
+  state_id: 
+  region_id: 
+  county_id: 
+  street: MyString
+  apartment: MyString
+  flat: 1
+  village: MyString
+  quartal: MyString
+  rayon: MyString
+  street_passage: MyString
+  register_start_date: 2017-11-15
+  register_end_date: 2017-11-15
+  notes: MyText

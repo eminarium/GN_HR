@@ -1,0 +1,12 @@
+<% @foreign_cities.each do |foreign_city| %>
+    <tr>
+      <td><%= foreign_city.foreign_city_name %></td>
+      <td><%= foreign_city.country.country_name %></td>
+      <td><%= foreign_city.notes %></td>
+
+      <td><%= link_to "Giňişleýin", foreign_city, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_foreign_city_path(foreign_city), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", foreign_city_delete_path(foreign_city), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

@@ -1,0 +1,11 @@
+<% @countries.each do |country| %>
+    <tr>
+      <td><%= country.country_name %></td>
+      <td><%= country.notes %></td>
+
+      <td><%= link_to "Giňişleýin", country, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_country_path(country), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", country_delete_path(country), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

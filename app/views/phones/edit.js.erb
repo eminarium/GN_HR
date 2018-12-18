@@ -1,0 +1,3 @@
+$("#phone-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Telefon Belgisini Üýtget  - <i><b><%= @phone.phone_no %></b></i></h3>");
+$("#phone-modal").modal("show")

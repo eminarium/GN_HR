@@ -1,0 +1,11 @@
+<% @positions.each do |position| %>
+    <tr>
+      <td><%= position.position_title %></td>
+      <td><%= position.quantity %></td>
+      <td><%= position.department.department_title %></td>
+      <td><%= position.notes %></td>
+      <td><%= link_to "Giňişleýin", position, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_position_path(position), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", position_delete_path(position), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

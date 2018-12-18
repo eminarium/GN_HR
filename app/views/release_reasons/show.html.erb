@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Release reason title:</strong>
+  <%= @release_reason.release_reason_title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @release_reason.notes %>
+</p>
+
+<%= link_to 'Edit', edit_release_reason_path(@release_reason) %> |
+<%= link_to 'Back', release_reasons_path %>

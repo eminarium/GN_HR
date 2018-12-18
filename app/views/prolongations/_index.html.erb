@@ -1,0 +1,17 @@
+<% @prolongations.each do |prolongation| %>
+    <tr>
+      <td><%= prolongation.employees_position.employee.first_and_last_name %></td>
+      <td><%= prolongation.employees_position.position.position_title+"-"+prolongation.employees_position.position.department.department_title  %></td>
+      <td><%= prolongation.employees_position.position_type.position_type_title %></td>
+      <td><%= ((prolongation.order.nil?) ? "" : prolongation.order.order_no_and_date) %> </td>
+      <td><%= prolongation.start_date %></td>
+      <td><%= ((prolongation.is_temporary) ? "HAWA" : "ÝOK") %></td>
+      <td><%= ((prolongation.is_temporary) ? prolongation.end_date.strftime("%d-%m-%Y") : "") %></td>
+      <td><%= prolongation.notes %></td>
+
+      <td><%= link_to "Giňişleýin", prolongation, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_prolongation_path(prolongation), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", prolongation_delete_path(prolongation), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

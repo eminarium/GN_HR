@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @marital_status.errors.any? %>
+    <% @marital_status.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".marital_status-index").html("<%= escape_javascript(render 'index') %>")
+    $("#marital_status-modal").modal("hide")
+<% end %>

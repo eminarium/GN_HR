@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @phone_type.errors.any? %>
+    <% @phone_type.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".phone_type-index").html("<%= escape_javascript(render 'index') %>")
+    $("#phone_type-modal").modal("hide")
+<% end %>

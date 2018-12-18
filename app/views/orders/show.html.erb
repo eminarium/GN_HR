@@ -1,0 +1,556 @@
+<div class="normalheader ">
+  <div class="hpanel">
+    <div class="panel-body">
+      <a class="small-header-action" href="#">
+        <div class="clip-header">
+          <i class="fa fa-arrow-up"></i>
+        </div>
+      </a>
+
+      <div id="hbreadcrumb" class="pull-right m-t-lg">
+        <ol class="hbreadcrumb breadcrumb">
+          <li><a href="index-2.html">Dashboard</a></li>
+          <li>
+            <span>App views</span>
+          </li>
+          <li class="active">
+            <span>Işgär Maglumaty</span>
+          </li>
+        </ol>
+      </div>
+      <h2 class="font-light m-b-xs">
+        Buýruk Maglumaty :   <i style="font-size:18pt"><%= @order.order_no_and_date %></i>
+      </h2>
+      <small><%= @order.order_title %></small>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="row">
+
+<div class="col-lg-12">
+<div class="hpanel">
+
+<ul class="nav nav-tabs">
+<% @is_tab_active = false %>
+
+  <% if (@all_positions.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-positions">" WEZIPELER "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-positions">" WEZIPELER "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@tolegsiz_rugsatlar.count > 0) %>
+      <% if (@is_tab_active == false) %>
+        <% @is_tab_active = true %>
+        <li class="active"><a data-toggle="tab" href="#tab-tr_full">" TÖLEGSIZ RUGSATLAR "</a></li>
+      <% else %>
+        <li><a data-toggle="tab" href="#tab-tr_full">" TÖLEGSIZ RUGSATLAR "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@dersden_rugsatlar.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-tr_partial">" DERSDEN RUGSATLAR "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-tr_partial">" DERSDEN RUGSATLAR "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@zahmet_rugsatlar.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-zr">" ZÄHMET RUGSATLARY "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-zr">" ZÄHMET RUGSATLARY "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@gosmaca_rugsatlar.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-gr">" GOŞMAÇA RUGSATLARY "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-gr">" GOŞMAÇA RUGSATLARY "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@is_saparlary.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-is">" IŞ SAPARLARY "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-is">" IŞ SAPARLARY "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@caga_rugsatlar.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-cr">" ÇAGA RUGSATLARY "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-cr">" ÇAGA RUGSATLARY "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@umumy_buyruklar.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-um">" UMUMY BUÝRUKLAR "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-um">" UMUMY BUÝRUKLAR "</a></li>
+      <% end %>
+  <% end %>
+
+  <% if (@temmiler.count > 0) %>
+      <% if (@is_tab_active == false) %>
+          <% @is_tab_active = true %>
+          <li class="active"><a data-toggle="tab" href="#tab-tem">" TEMMILER "</a></li>
+      <% else %>
+          <li><a data-toggle="tab" href="#tab-tem">" TEMMILER "</a></li>
+      <% end %>
+  <% end %>
+
+</ul>
+
+<div class="tab-content">
+
+<% @is_pane_active = false %>
+
+<% if (@all_positions.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-positions" class="tab-pane active">
+    <% else %>
+        <div id="tab-positions" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>WEZIPE ÜÝTGEMELERI</strong>
+
+    <p> </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Bellenen Buýruk #</th>
+          <th>Bellenen Senesi</th>
+          <th>Wezipe</th>
+          <th>Iş görnüşi </th>
+          <th>Boşadylan Buýruk # </th>
+          <th>Boşadylan Senesi</th>
+          <th>Işden Çykan</th>
+          <th>Wezipe Üýtgedilen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @all_positions.each do |pos| %>
+            <tr>
+              <td><%= pos.assign_order.order_no %> / <%= pos.assign_order.order_date.strftime("%d-%m-%Y") %></td>
+              <td><%= pos.assigned_date.strftime("%d-%m-%Y") %></td>
+              <td><%= pos.position.position_title %> / <%= pos.position.department.department_title %></td>
+              <td><%= pos.position_type.position_type_title %></td>
+              <td>
+                <% if (pos.release_order) %>
+                    <%= pos.release_order.order_no %> / <%= pos.release_order.order_date.strftime("%d-%m-%Y") %>
+
+                <% end %>
+              </td>
+              <td>
+                <% if (pos.release_order) %>
+                    <%= pos.released_date.strftime("%d-%m-%Y") %>
+                <% end %>
+              </td>
+              <td>
+                <% if (pos.is_released) %>
+                    <i class="fa fa-check text-success"></i>
+                <% else %>
+                    <i class="fa fa-times text-danger"></i>
+                <% end %>
+              </td>
+              <td>
+                <% if (pos.is_changed) %>
+                    <i class="fa fa-check text-success"></i>
+                <% else %>
+                    <i class="fa fa-times text-danger"></i>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+
+<% if (@tolegsiz_rugsatlar.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-tr_full" class="tab-pane active">
+    <% else %>
+        <div id="tab-tr_full" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>TÖLEGSIZ RUGSATLAR</strong>
+
+    <p>Doly gün rugsatlar</p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Giden Senesi</th>
+          <th>Gelmeli Senesi</th>
+          <th>Gün Sany</th>
+          <th>Bellikler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @tolegsiz_rugsatlar.each do |tr| %>
+            <tr>
+              <td><%= tr.order.order_no %> / <%= tr.order.order_date %></td>
+              <td><%= tr.start_date.strftime("%d-%m-%Y") %></td>
+              <td><%= tr.return_date.strftime("%d-%m-%Y") %></td>
+              <td><%= tr.day_quantity %></td>
+              <td><%= tr.notes %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+<% if (@tolegsiz_rugsatlar.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-tr_partial" class="tab-pane active">
+    <% else %>
+        <div id="tab-tr_partial" class="tab-pane">
+    <% end %>
+
+
+  <div class="panel-body">
+    <strong>DERSDEN RUGSATLAR</strong>
+
+    <p>Günüň dowamynda birnäçe dersiniň käbirinden rugsat alan ýagdaýynda / Doly gün bolmadyk rugsatlar</p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Giden Senesi</th>
+          <th>Gelmeli Senesi</th>
+          <th>Gün Sany</th>
+          <th>Bellikler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @dersden_rugsatlar.each do |dr| %>
+            <tr>
+              <td><%= dr.order.order_no %> / <%= dr.order.order_date %></td>
+              <td><%= dr.start_date.strftime("%d-%m-%Y") %></td>
+              <td><%= dr.return_date.strftime("%d-%m-%Y") %></td>
+              <td><%= dr.day_quantity %></td>
+              <td><%= dr.notes %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+<% if (@zahmet_rugsatlar.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-zr" class="tab-pane active">
+    <% else %>
+        <div id="tab-zr" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>ZÄHMET RUGSATLARY</strong>
+
+    <p> </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Giden Senesi</th>
+          <th>Gelmeli Senesi</th>
+          <th>Gün Sany</th>
+          <th>Bellikler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @zahmet_rugsatlar.each do |zr| %>
+            <tr>
+              <td><%= zr.order.order_no %> / <%= zr.order.order_date %></td>
+              <td><%= zr.start_date.strftime("%d-%m-%Y") %></td>
+              <td><%= zr.return_date.strftime("%d-%m-%Y") %></td>
+              <td><%= zr.day_quantity %></td>
+              <td><%= zr.notes %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+<% if (@gosmaca_rugsatlar.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-gr" class="tab-pane active">
+    <% else %>
+        <div id="tab-gr" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>GOŞMAÇA RUGSATLARY</strong>
+
+    <p> </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Giden Senesi</th>
+          <th>Gelmeli Senesi</th>
+          <th>Gün Sany</th>
+          <th>Bellikler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @gosmaca_rugsatlar.each do |gr| %>
+            <tr>
+              <td><%= gr.order.order_no %> / <%= gr.order.order_date %></td>
+              <td><%= gr.start_date.strftime("%d-%m-%Y") %></td>
+              <td><%= gr.return_date.strftime("%d-%m-%Y") %></td>
+              <td><%= gr.day_quantity %></td>
+              <td><%= gr.notes %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+<% if (@is_saparlary.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-is" class="tab-pane active">
+    <% else %>
+        <div id="tab-is" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>IŞ SAPARLARY</strong>
+
+    <p> </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Giden Senesi</th>
+          <th>Gelmeli Senesi</th>
+          <th>Gün Sany</th>
+          <th>Bellikler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @is_saparlary.each do |is| %>
+            <tr>
+              <td><%= is.order.order_no %> / <%= is.order.order_date %></td>
+              <td><%= is.start_date.strftime("%d-%m-%Y") %></td>
+              <td><%= is.return_date.strftime("%d-%m-%Y") %></td>
+              <td><%= is.day_quantity %></td>
+              <td><%= is.notes %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+<% if (@caga_rugsatlar.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-cr" class="tab-pane active">
+    <% else %>
+        <div id="tab-cr" class="tab-pane">
+    <% end %>
+
+      <div class="panel-body">
+        <strong>ÇAGA SERETMEK BOÝUNÇA RUGSATLARY</strong>
+
+        <p> </p>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Buýruk #</th>
+              <th>Giden Senesi</th>
+              <th>Gelmeli Senesi</th>
+              <th>Gün Sany</th>
+              <th>Bellikler</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @caga_rugsatlar.each do |cr| %>
+                <tr>
+                  <td><%= cr.order.order_no %> / <%= cr.order.order_date %></td>
+                  <td><%= cr.start_date.strftime("%d-%m-%Y") %></td>
+                  <td><%= cr.return_date.strftime("%d-%m-%Y") %></td>
+                  <td><%= cr.day_quantity %></td>
+                  <td><%= cr.notes %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+<% end %>
+
+<% if (@umumy_buyruklar.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-um" class="tab-pane active">
+    <% else %>
+        <div id="tab-um" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>UMUMY BUÝRUKLAR</strong>
+
+    <p> </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Senesi</th>
+          <th>Mowzugy</th>
+          <th>Mazmuny</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @umumy_buyruklar.each do |ub| %>
+            <tr>
+              <td><%= ub.order.order_no %> / <%= ub.order.order_date %></td>
+              <td><%= ub.order_item_date.strftime("%d-%m-%Y") %></td>
+              <td><%= ub.order_item_topic %></td>
+              <td><%= ub.order_item_content %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+<% if (@temmiler.count > 0) %>
+
+    <% if (@is_pane_active == false) %>
+        <% @is_pane_active = true %>
+        <div id="tab-tem" class="tab-pane active">
+    <% else %>
+        <div id="tab-tem" class="tab-pane">
+    <% end %>
+
+  <div class="panel-body">
+    <strong>TEMMILER</strong>
+
+    <p> </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Buýruk #</th>
+          <th>Sebäbi</th>
+          <th>Bellikler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @temmiler.each do |tem| %>
+            <tr>
+              <td><%= tem.order.order_no %> / <%= tem.order.order_date %></td>
+              <td><%= tem.warning_reason %></td>
+              <td><%= tem.notes %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<% end %>
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>

@@ -1,0 +1,3 @@
+$("#order-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Buýruk Maglumatyny Üýtget  - <i><b><%= @order.order_no %></b></i></h3>");
+$("#order-modal").modal("show")

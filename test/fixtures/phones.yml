@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  phone_type_id: 
+  phone_no: MyString
+  notes: MyText
+
+two:
+  employee_id: 
+  phone_type_id: 
+  phone_no: MyString
+  notes: MyText

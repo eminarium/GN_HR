@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @general_order_item.order %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @general_order_item.employee %>
+</p>
+
+<p>
+  <strong>Order content:</strong>
+  <%= @general_order_item.order_item_content %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @general_order_item.notes %>
+</p>
+
+<%= link_to 'Edit', edit_general_order_item_path(@general_order_item) %> |
+<%= link_to 'Back', general_order_items_path %>

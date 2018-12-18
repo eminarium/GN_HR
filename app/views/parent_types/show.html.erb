@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent type title:</strong>
+  <%= @parent_type.parent_type_title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @parent_type.notes %>
+</p>
+
+<%= link_to 'Edit', edit_parent_type_path(@parent_type) %> |
+<%= link_to 'Back', parent_types_path %>

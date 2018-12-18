@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @prolongation.errors.any? %>
+    <% @prolongation.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".prolongation-index").html("<%= escape_javascript(render 'index') %>")
+    $("#prolongation-modal").modal("hide")
+<% end %>

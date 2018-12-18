@@ -1,0 +1,3 @@
+$("#department-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Bölüm Maglumatyny Üýtget  - <i><b><%= @department.department_title %></b></i></h3>");
+$("#department-modal").modal("show")

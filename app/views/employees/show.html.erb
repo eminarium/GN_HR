@@ -1,0 +1,623 @@
+<div class="normalheader ">
+  <div class="hpanel">
+    <div class="panel-body">
+      <a class="small-header-action" href="#">
+        <div class="clip-header">
+          <i class="fa fa-arrow-up"></i>
+        </div>
+      </a>
+
+      <div id="hbreadcrumb" class="pull-right m-t-lg">
+        <ol class="hbreadcrumb breadcrumb">
+          <li><a href="index-2.html">Dashboard</a></li>
+          <li>
+            <span>App views</span>
+          </li>
+          <li class="active">
+            <span>Işgär Maglumaty</span>
+          </li>
+        </ol>
+      </div>
+      <h2 class="font-light m-b-xs">
+        Işgär Maglumaty /  <i style="font-size:18pt"><%= @employee.last_name + " " + @employee.first_name + " " + @employee.patronymic %></i>
+      </h2>
+      <small>Kärhananyň / Guramanyň işgäri barada ähli maglumatlar sahypasy</small>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="row">
+
+    <div class="col-lg-4">
+      <div class="hpanel hgreen contact-panel">
+        <div class="panel-body">
+          <span class="label label-success pull-right">NEW</span>
+          <img alt="logo" class="img-circle m-b" src="<% if (@employee.photo_url.blank?) %> <%= '/images/no_photo_3.png' %>  <% else %> <%= '/images/@employee.photo_url' %> <% end %> ">
+          <h3><a href="#"> <%= @employee.last_name+" "+@employee.first_name+" "+@employee.patronymic %> </a></h3>
+          <% @current_positions.each do |cp| %>
+              <hr>
+          <div class="text-muted font-bold m-b-xs"><%= cp.position.position_title %>   <font color="#00bfff"  font-weight="bold">@</font> <%= cp.position.department.department_title %></div>
+          <p>
+            <%= cp.position_type.position_type_title %>
+          </p>
+          <% end %>
+        </div>
+        <div class="panel-footer contact-footer">
+          <div class="row">
+            <div class="col-md-1 border-right"> <div class="contact-stat"><strong> <%= ((@employee.gender) ? "<i class='fa fa-male' style='font-size:20pt; color:navy'></i>".html_safe() : "<i class='fa fa-female' style='font-size:20pt; color:red'></i>".html_safe()) %> </strong></div> </div>
+            <div class="col-md-4 border-right"> <div class="contact-stat"><span>Doglan Senesi : </span> <strong> <%= @employee.dob.strftime("%d-%m-%Y") %> </strong></div> </div>
+            <div class="col-md-4 border-right">
+              <div class="contact-stat">
+                <span>Maşgala Ýagdaýy : </span>
+                    <strong>
+                        <% if (@employee.marital_status) %>
+                            <%= @employee.marital_status.marital_status_title %>
+                        <% end %>
+                    </strong>
+              </div>
+            </div>
+            <div class="col-md-3"> <div class="contact-stat"><span>Milleti: </span> <strong> <%= @employee.nationality.nationality_title %> </strong></div> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-phones"> <i class="fa fa-phone" style="font-size:18pt"></i></a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-passport_data"><i class="fa fa-drivers-license-o" style="font-size:18pt"></i></a></li>
+                </ul>
+                <div class="tab-content">
+
+                    <div id="tab-phones" class="tab-pane active">
+                        <div class="panel-body">
+                          <strong>TELEFON BELGILERI</strong><br><br>
+                          <div class="table-responsive">
+                              <table class="table table-striped">
+                                  <thead>
+                                  <tr>
+                                      <th>#</th>
+                                      <th>Belgisi </th>
+                                      <th>Görnüşi </th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                    <% @counter = 0 %>
+                                    <% @employee_phones.each do |phone| %>
+                                      <tr>
+                                          <td><%= @counter= @counter +1 %></td>
+                                          <td><%= phone.phone_no %></td>
+                                          <td><%= phone.phone_type.phone_type_title %></td>
+                                      </tr>
+                                  <% end %>
+                                  </tbody>
+                              </table>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-passport_data" class="tab-pane">
+                        <div class="panel-body">
+
+
+                          <strong>PASPORT MAGLUMATLARY</strong><br><br>
+                          <div class="table-responsive">
+                              <table class="table table-striped">
+                                  <tbody>
+                                    <tr>
+                                      <td style="font-weight:bold">Seriýasy</td>
+                                      <td style="font-weight:bold"> : </td>
+                                      <td> <%= @employee.local_passport_serial %> </td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight:bold">Belgisi</td>
+                                      <td style="font-weight:bold"> : </td>
+                                      <td> <%= @employee.local_passport_no %> </td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight:bold">Berlen Senesi</td>
+                                      <td style="font-weight:bold"> : </td>
+                                      <td> <%= @employee.local_passport_given_date.strftime("%d-%m-%Y") %> </td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight:bold">Beren Edara</td>
+                                      <td style="font-weight:bold"> : </td>
+                                      <td> <%= @employee.local_passport_issued_by %> </td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-8">
+      <div class="hpanel">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#tab-education"> <i class="fa fa-university" style="font-size:18pt"></i></a></li>
+          <li class=""><a data-toggle="tab" href="#tab-certificates"><i class="fa fa-certificate" style="font-size:18pt"></i></a></li>
+        </ul>
+        <div class="tab-content">
+
+          <div id="tab-education" class="tab-pane active">
+            <div class="panel-body">
+              <strong>BILIMI - OKUWY</strong><br><br>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>Derejesi</th>
+                    <th>Okuw Jaýy </th>
+                    <th>Hünäri </th>
+                    <th>Dipl. #</th>
+                    <th>Başlan Senesi </th>
+                    <th>Tamamlan Senesi </th>
+                    <th>Bellikler</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @employee_educations.each do |ed| %>
+                      <tr>
+                        <td><%= ed.degree.degree_title %></td>
+                        <td><%= ed.institution_title %></td>
+                        <td><%= ed.diploma_title %></td>
+                        <td><%= ed.diploma_no %></td>
+                        <td><%= ed.start_date.strftime("%d-%m-%Y") %></td>
+                        <td><%= ed.end_date.strftime("%d-%m-%Y") %></td>
+                        <td><%= ed.notes %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="tab-certificates" class="tab-pane">
+            <div class="panel-body">
+              <strong>SERTIFIKATLARYY</strong><br><br>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>Görnüşi</th>
+                    <th>Sertifikat Barada </th>
+                    <th>Belgisi </th>
+                    <th>Beren Gurama</th>
+                    <th>Alnan Senesi </th>
+                    <th>Tamamlan Senesi </th>
+                    <th>Bellikler</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @employee_certificates.each do |cert| %>
+                      <tr>
+                        <td><%= cert.certificate_type.certificate_type_title %></td>
+                        <td><%= cert.certificate_title %></td>
+                        <td><%= cert.certificate_no %></td>
+                        <td><%= cert.issued_by %></td>
+                        <td><%= cert.issued_date %></td>
+                        <td><%= cert.expiry_date %></td>
+                        <td><%= cert.notes %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+  <div class="col-lg-12">
+  <div class="hpanel">
+  <div class="hpanel">
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#tab-positions">" WEZIPELER "</a></li>
+    <li class=""><a data-toggle="tab" href="#tab-tr_full">" TÖLEGSIZ RUGSATLAR "</a></li>
+    <li class=""><a data-toggle="tab" href="#tab-tr_partial">" DERSDEN RUGSATLAR "</a></li>
+    <li class=""><a data-toggle="tab" href="#tab-zr">" ZÄHMET RUGSATLARY "</a></li>
+    <li class=""><a data-toggle="tab" href="#tab-gr">" GOŞMAÇA RUGSATLARY "</a></li>
+    <li class=""><a data-toggle="tab" href="#tab-is">" IŞ SAPARLARY "</a></li>
+    <% if (!@employee.gender) %>
+        <li class=""><a data-toggle="tab" href="#tab-cr">" ÇAGA RUGSATLARY "</a></li>
+    <% end %>
+    <li class=""><a data-toggle="tab" href="#tab-um">" UMUMY BUÝRUKLAR "</a></li>
+    <li class=""><a data-toggle="tab" href="#tab-tem">" TEMMILER "</a></li>
+  </ul>
+  <div class="tab-content">
+
+  <div id="tab-positions" class="tab-pane active">
+    <div class="panel-body">
+      <strong>WEZIPE ÜÝTGEMELERI</strong>
+
+      <p> </p>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Bellenen Buýruk #</th>
+            <th>Bellenen Senesi</th>
+            <th>Wezipe</th>
+            <th>Iş görnüşi </th>
+            <th>Boşadylan Buýruk # </th>
+            <th>Boşadylan Senesi</th>
+            <th>Işden Çykan</th>
+            <th>Wezipe Üýtgedilen</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @all_positions.each do |pos| %>
+              <tr>
+                <td><%= pos.assign_order.order_no %> / <%= pos.assign_order.order_date.strftime("%d-%m-%Y") %></td>
+                <td><%= pos.assigned_date.strftime("%d-%m-%Y") %></td>
+                <td><%= pos.position.position_title %> / <%= pos.position.department.department_title %></td>
+                <td><%= pos.position_type.position_type_title %></td>
+                <td>
+                  <% if (pos.release_order) %>
+                    <%= pos.release_order.order_no %> / <%= pos.release_order.order_date.strftime("%d-%m-%Y") %>
+
+                <% end %>
+                </td>
+                <td>
+                  <% if (pos.release_order) %>
+                      <%= pos.released_date.strftime("%d-%m-%Y") %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if (pos.is_released) %>
+                      <i class="fa fa-check text-success"></i>
+                  <% else %>
+                      <i class="fa fa-times text-danger"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <% if (pos.is_changed) %>
+                      <i class="fa fa-check text-success"></i>
+                  <% else %>
+                      <i class="fa fa-times text-danger"></i>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="tab-tr_full" class="tab-pane">
+    <div class="panel-body">
+      <strong>TÖLEGSIZ RUGSATLAR</strong>
+
+      <p>Doly gün rugsatlar</p>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Buýruk #</th>
+            <th>Giden Senesi</th>
+            <th>Gelmeli Senesi</th>
+            <th>Gün Sany</th>
+            <th>Bellikler</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @tolegsiz_rugsatlar.each do |tr| %>
+              <tr>
+                <td><%= tr.order.order_no %> / <%= tr.order.order_date %></td>
+                <td><%= tr.start_date.strftime("%d-%m-%Y") %></td>
+                <td><%= tr.return_date.strftime("%d-%m-%Y") %></td>
+                <td><%= tr.day_quantity %></td>
+                <td><%= tr.notes %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+    <div id="tab-tr_partial" class="tab-pane">
+      <div class="panel-body">
+        <strong>DERSDEN RUGSATLAR</strong>
+
+        <p>Günüň dowamynda birnäçe dersiniň käbirinden rugsat alan ýagdaýynda / Doly gün bolmadyk rugsatlar</p>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Buýruk #</th>
+              <th>Giden Senesi</th>
+              <th>Gelmeli Senesi</th>
+              <th>Gün Sany</th>
+              <th>Bellikler</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @dersden_rugsatlar.each do |dr| %>
+                <tr>
+                  <td><%= dr.order.order_no %> / <%= dr.order.order_date %></td>
+                  <td><%= dr.start_date.strftime("%d-%m-%Y") %></td>
+                  <td><%= dr.return_date.strftime("%d-%m-%Y") %></td>
+                  <td><%= dr.day_quantity %></td>
+                  <td><%= dr.notes %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div id="tab-zr" class="tab-pane">
+      <div class="panel-body">
+        <strong>ZÄHMET RUGSATLARY</strong>
+
+        <p> </p>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Buýruk #</th>
+              <th>Giden Senesi</th>
+              <th>Gelmeli Senesi</th>
+              <th>Gün Sany</th>
+              <th>Bellikler</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @zahmet_rugsatlar.each do |zr| %>
+                <tr>
+                  <td><%= zr.order.order_no %> / <%= zr.order.order_date %></td>
+                  <td><%= zr.start_date.strftime("%d-%m-%Y") %></td>
+                  <td><%= zr.return_date.strftime("%d-%m-%Y") %></td>
+                  <td><%= zr.day_quantity %></td>
+                  <td><%= zr.notes %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+
+  <div id="tab-gr" class="tab-pane">
+    <div class="panel-body">
+      <strong>GOŞMAÇA RUGSATLARY</strong>
+
+      <p> </p>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Buýruk #</th>
+            <th>Giden Senesi</th>
+            <th>Gelmeli Senesi</th>
+            <th>Gün Sany</th>
+            <th>Bellikler</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @gosmaca_rugsatlar.each do |gr| %>
+              <tr>
+                <td><%= gr.order.order_no %> / <%= gr.order.order_date %></td>
+                <td><%= gr.start_date.strftime("%d-%m-%Y") %></td>
+                <td><%= gr.return_date.strftime("%d-%m-%Y") %></td>
+                <td><%= gr.day_quantity %></td>
+                <td><%= gr.notes %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id="tab-is" class="tab-pane">
+    <div class="panel-body">
+      <strong>IŞ SAPARLARY</strong>
+
+      <p> </p>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Buýruk #</th>
+            <th>Giden Senesi</th>
+            <th>Gelmeli Senesi</th>
+            <th>Gün Sany</th>
+            <th>Bellikler</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @is_saparlary.each do |is| %>
+              <tr>
+                <td><%= is.order.order_no %> / <%= is.order.order_date %></td>
+                <td><%= is.start_date.strftime("%d-%m-%Y") %></td>
+                <td><%= is.return_date.strftime("%d-%m-%Y") %></td>
+                <td><%= is.day_quantity %></td>
+                <td><%= is.notes %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <% if (!@employee.gender) %>
+
+      <div id="tab-cr" class="tab-pane">
+        <div class="panel-body">
+          <strong>ÇAGA SERETMEK BOÝUNÇA RUGSATLARY</strong>
+
+          <p> </p>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Buýruk #</th>
+                <th>Giden Senesi</th>
+                <th>Gelmeli Senesi</th>
+                <th>Gün Sany</th>
+                <th>Bellikler</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @caga_rugsatlar.each do |cr| %>
+                  <tr>
+                    <td><%= cr.order.order_no %> / <%= cr.order.order_date %></td>
+                    <td><%= cr.start_date.strftime("%d-%m-%Y") %></td>
+                    <td><%= cr.return_date.strftime("%d-%m-%Y") %></td>
+                    <td><%= cr.day_quantity %></td>
+                    <td><%= cr.notes %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+  <% end %>
+
+  <div id="tab-um" class="tab-pane">
+    <div class="panel-body">
+      <strong>UMUMY BUÝRUKLAR</strong>
+
+      <p> </p>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Buýruk #</th>
+            <th>Senesi</th>
+            <th>Mowzugy</th>
+            <th>Mazmuny</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @umumy_buyruklar.each do |ub| %>
+              <tr>
+                <td><%= ub.order.order_no %> / <%= ub.order.order_date %></td>
+                <td><%= ub.order_item_date.strftime("%d-%m-%Y") %></td>
+                <td><%= ub.order_item_topic %></td>
+                <td><%= ub.order_item_content %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div id="tab-tem" class="tab-pane">
+    <div class="panel-body">
+      <strong>TEMMILER</strong>
+
+      <p> </p>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Buýruk #</th>
+            <th>Sebäbi</th>
+            <th>Bellikler</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @temmiler.each do |tem| %>
+              <tr>
+                <td><%= tem.order.order_no %> / <%= tem.order.order_date %></td>
+                <td><%= tem.warning_reason %></td>
+                <td><%= tem.notes %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+
+
+  </div>
+
+</div>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Is local:</strong>
+  <%= @employee.is_local %>
+</p>
+
+<p>
+  <strong>Is military liable:</strong>
+  <%= @employee.is_military_liable %>
+</p>
+<p>
+  <strong>Local passport scan url:</strong>
+  <%= @employee.local_passport_scan_url %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @employee.notes %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

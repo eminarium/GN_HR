@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Certificate type title:</strong>
+  <%= @certificate_type.certificate_type_title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @certificate_type.notes %>
+</p>
+
+<%= link_to 'Edit', edit_certificate_type_path(@certificate_type) %> |
+<%= link_to 'Back', certificate_types_path %>

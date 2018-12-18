@@ -1,0 +1,9 @@
+<% @position_types.each do |position_type| %>
+    <tr>
+      <td><%= position_type.position_type_title %></td>
+      <td><%= position_type.notes %></td>
+      <td><%= link_to "Giňişleýin", position_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_position_type_path(position_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", position_type_delete_path(position_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

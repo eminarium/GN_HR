@@ -1,0 +1,3 @@
+$("#marital_status-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Maşgala Ýagdaýy Maglumatyny Üýtget  - <i><b><%= @marital_status.marital_status_title %></b></i></h3>");
+$("#marital_status-modal").modal("show")

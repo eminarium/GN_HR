@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4253705891">
+    <data-source source="LOCAL" name="Rails HR: development" uuid="b4de3e3b-563c-4bd4-8bd3-2bacd6eef17c">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:HR</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dff5dff5dff5dff5dff5dff5dff5dff5dff5dff5dff5</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails HR: test" uuid="a0b8076a-81dd-4ef9-ae4f-a7be26eec219">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:HR_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails HR: production" uuid="1ced5fe4-f7c0-4881-88b6-5798b70ca84e">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:HR</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dff5dff5dff5dff5dff5dff5dff5dff5dff5dff5dff5dff5</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

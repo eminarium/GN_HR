@@ -1,0 +1,3 @@
+$("#prolongation-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Wezipe Möhlet Uzatmasyny Üýtget  - <i><b><%= @prolongation.employees_position.employee.first_and_last_name %></b></i></h3>");
+$("#prolongation-modal").modal("show")

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @parent.employee %>
+</p>
+
+<p>
+  <strong>Parent type:</strong>
+  <%= @parent.parent_type %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @parent.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @parent.last_name %>
+</p>
+
+<p>
+  <strong>Patronymic:</strong>
+  <%= @parent.patronymic %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @parent.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @parent.dob %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @parent.notes %>
+</p>
+
+<%= link_to 'Edit', edit_parent_path(@parent) %> |
+<%= link_to 'Back', parents_path %>

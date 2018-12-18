@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @work_experience.errors.any? %>
+    <% @work_experience.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".work_experience-index").html("<%= escape_javascript(render 'index') %>")
+    $("#work_experience-modal").modal("hide")
+<% end %>

@@ -1,0 +1,47 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="color-line"></div>
+
+    <div class="modal-header text-center">
+      <h4 class="modal-title">Modal title</h4>
+      <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+    </div>
+
+    <%= form_for @foreign_city, remote: true, html: { style: "display:inline;" } do |f| %>
+
+        <div class="modal-body">
+          <ul class="errors"></ul>
+
+          <div class="form-group">
+            <%= f.label "Şäheriň Ady : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.text_field :foreign_city_name, :type => "text", class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Ýurdy : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.collection_select(:country_id, @countries, :id, :country_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Bellikler : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.text_area :notes, :type => "text",class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit "Kabul Et", class: "btn btn-primary" %>
+          <%= link_to "Goýbolsun", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

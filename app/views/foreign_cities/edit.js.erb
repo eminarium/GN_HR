@@ -1,0 +1,3 @@
+$("#foreign_city-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Şäher Maglumatyny Üýtget  - <i><b><%= @foreign_city.foreign_city_name %></b></i></h3>");
+$("#foreign_city-modal").modal("show")

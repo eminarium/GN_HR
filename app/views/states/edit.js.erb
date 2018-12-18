@@ -1,0 +1,3 @@
+$("#state-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Welaýat Maglumatyny Üýtget  - <i><b><%= @state.state_name %></b></i></h3>");
+$("#state-modal").modal("show")

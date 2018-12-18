@@ -1,0 +1,24 @@
+<% @employees_positions.each do |employee_position| %>
+    <tr>
+      <td><%= employee_position.employee.first_and_last_name %></td>
+      <td><%= employee_position.position.position_title+"-"+employee_position.position.department.department_title  %></td>
+      <td><%= employee_position.position_type.position_type_title %></td>
+      <td><%= employee_position.is_changed %></td>
+      <td><%= employee_position.is_released %></td>
+      <td><%= ((employee_position.assign_order.nil?) ? "" : employee_position.assign_order.order_no_and_date) %> </td>
+      <td><%= employee_position.assigned_date %></td>
+      <!-- <td><%= employee_position.assign_notes %></td> -->
+      <td><%= ((employee_position.release_order.nil?) ? "" : employee_position.release_order.order_no_and_date) %> </td>
+      <td><%= ((employee_position.is_released || employee_position.is_changed) ? employee_position.released_date : "") %></td>
+      <td><%= ((employee_position.release_reason.nil?) ? "" : employee_position.release_reason.release_reason_title) %></td>
+      <td><%= employee_position.is_temporary %></td>
+      <td><%= ((employee_position.is_temporary) ? employee_position.temporary_start_date.strftime("%d-%m-%Y") : "") %></td>
+      <td><%= ((employee_position.is_temporary) ? employee_position.temporary_end_date.strftime("%d-%m-%Y") : "") %></td>
+      <!-- <td><%= employee_position.release_notes %></td> -->
+
+      <td><%= link_to "Giňişleýin", employee_position, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_employees_position_path(employee_position), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", employees_position_delete_path(employee_position), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

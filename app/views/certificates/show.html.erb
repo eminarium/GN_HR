@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @certificate.employee %>
+</p>
+
+<p>
+  <strong>Certificate type:</strong>
+  <%= @certificate.certificate_type %>
+</p>
+
+<p>
+  <strong>Certificate title:</strong>
+  <%= @certificate.certificate_title %>
+</p>
+
+<p>
+  <strong>Certificate no:</strong>
+  <%= @certificate.certificate_no %>
+</p>
+
+<p>
+  <strong>Issued by:</strong>
+  <%= @certificate.issued_by %>
+</p>
+
+<p>
+  <strong>Issued date:</strong>
+  <%= @certificate.issued_date %>
+</p>
+
+<p>
+  <strong>Expiry date:</strong>
+  <%= @certificate.expiry_date %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @certificate.notes %>
+</p>
+
+<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
+<%= link_to 'Back', certificates_path %>

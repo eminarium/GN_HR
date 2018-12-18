@@ -1,0 +1,14 @@
+<% @work_experiences.each do |work_experience| %>
+    <tr>
+      <td><%= work_experience.employee.first_and_last_name %></td>
+      <td><%= work_experience.position_type.position_type_title %></td>
+      <td><%= work_experience.organization_title %></td>
+      <td><%= work_experience.position_title %></td>
+      <td><%= work_experience.start_date.strftime("%d-%m-%Y") %></td>
+      <td><%= work_experience.end_date.strftime("%d-%m-%Y") %></td>
+      <td><%= work_experience.notes %></td>
+      <td><%= link_to "Giňişleýin", work_experience, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_work_experience_path(work_experience), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", work_experience_delete_path(work_experience), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

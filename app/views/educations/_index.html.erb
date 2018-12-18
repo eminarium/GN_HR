@@ -1,0 +1,15 @@
+<% @educations.each do |education| %>
+    <tr>
+      <td><%= education.employee.first_and_last_name %></td>
+      <td><%= education.degree.degree_title %></td>
+      <td><%= education.institution_title %></td>
+      <td><%= education.diploma_title %></td>
+      <td><%= education.diploma_no %></td>
+      <td><%= education.start_date.strftime("%d-%m-%Y") %></td>
+      <td><%= education.end_date.strftime("%d-%m-%Y") %></td>
+      <td><%= education.notes %></td>
+      <td><%= link_to "Giňişleýin", education, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_education_path(education), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", education_delete_path(education), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

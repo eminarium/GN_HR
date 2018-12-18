@@ -1,0 +1,15 @@
+<% @certificates.each do |certificate| %>
+    <tr>
+      <td><%= certificate.employee.first_and_last_name %></td>
+      <td><%= certificate.certificate_type.certificate_type_title %></td>
+      <td><%= certificate.issued_by %></td>
+      <td><%= certificate.certificate_title %></td>
+      <td><%= certificate.certificate_no %></td>
+      <td><%= certificate.issued_date.strftime("%d-%m-%Y") %></td>
+      <td><%= certificate.expiry_date.strftime("%d-%m-%Y") %></td>
+      <td><%= certificate.notes %></td>
+      <td><%= link_to "Giňişleýin", certificate, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_certificate_path(certificate), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", certificate_delete_path(certificate), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

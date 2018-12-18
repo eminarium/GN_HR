@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  parent_type_id: 
+  first_name: MyString
+  last_name: MyString
+  patronymic: MyString
+  gender: false
+  dob: 2018-01-06
+  notes: MyText
+
+two:
+  employee_id: 
+  parent_type_id: 
+  first_name: MyString
+  last_name: MyString
+  patronymic: MyString
+  gender: false
+  dob: 2018-01-06
+  notes: MyText

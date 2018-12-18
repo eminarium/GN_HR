@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  organization_title: MyString
+  start_date: 2018-01-09
+  end_date: 2018-01-09
+  position_title: MyString
+  position_type_id: 
+  notes: MyText
+
+two:
+  employee_id: 
+  organization_title: MyString
+  start_date: 2018-01-09
+  end_date: 2018-01-09
+  position_title: MyString
+  position_type_id: 
+  notes: MyText

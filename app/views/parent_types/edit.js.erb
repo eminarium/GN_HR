@@ -1,0 +1,3 @@
+$("#parent_type-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Garyndaşlyk Derejesi Maglumatyny Üýtget  - <i><b><%= @parent_type.parent_type_title %></b></i></h3>");
+$("#parent_type-modal").modal("show")

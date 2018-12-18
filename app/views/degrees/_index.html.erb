@@ -1,0 +1,9 @@
+<% @degrees.each do |degree| %>
+    <tr>
+      <td><%= degree.degree_title %></td>
+      <td><%= degree.notes %></td>
+      <td><%= link_to "Giňişleýin", degree, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_degree_path(degree), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", degree_delete_path(degree), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

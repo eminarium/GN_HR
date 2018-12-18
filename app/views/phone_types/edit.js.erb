@@ -1,0 +1,3 @@
+$("#phone_type-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Telefon Görnüşi Maglumatyny Üýtget  - <i><b><%= @phone_type.phone_type_title %></b></i></h3>");
+$("#phone_type-modal").modal("show")

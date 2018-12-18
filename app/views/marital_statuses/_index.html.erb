@@ -1,0 +1,9 @@
+<% @marital_statuses.each do |marital_status| %>
+    <tr>
+      <td><%= marital_status.marital_status_title %></td>
+      <td><%= marital_status.notes %></td>
+      <td><%= link_to "Giňişleýin", marital_status, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_marital_status_path(marital_status), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", marital_status_delete_path(marital_status), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

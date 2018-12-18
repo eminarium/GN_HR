@@ -1,0 +1,82 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="color-line"></div>
+
+    <div class="modal-header text-center">
+      <h4 class="modal-title">Modal title</h4>
+      <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+    </div>
+
+    <%= form_for @education, remote: true, html: { style: "display:inline;" } do |f| %>
+
+        <div class="modal-body">
+          <ul class="errors"></ul>
+
+          <div class="form-group">
+            <%= f.label "Işgär : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.collection_select(:employee_id, @employees, :id, :first_and_last_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Derejesi : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.collection_select(:degree_id, @degrees, :id, :degree_title, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Okuw Jaýynyň Ady: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.text_field :institution_title, :type => "text", class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Hünäri : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.text_field :diploma_title, :type => "text", class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Diplom Belgisi : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.text_field :diploma_no, :type => "text", class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Başlan Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.date_select :start_date, :start_year => 1900, :end_year => 2018, :type => "text", class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Tamamlan Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.date_select :end_date, :start_year => 1900, :end_year => 2018, :type => "text", class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+          <div class="form-group">
+            <%= f.label "Bellikler : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+            <div class="col-sm-8"><%= f.text_area :notes, :type => "text",class: "form-control" %></div>
+          </div>
+
+          <br><br><br>
+
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit "Kabul Et", class: "btn btn-primary" %>
+          <%= link_to "Goýbolsun", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

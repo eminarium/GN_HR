@@ -1,0 +1,163 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="color-line"></div>
+
+    <div class="modal-header text-center">
+      <h4 class="modal-title">Modal title</h4>
+      <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+    </div>
+
+    <%= form_for @employee, remote: true, html: { style: "display:inline;" } do |f| %>
+
+        <div class="modal-body">
+          <ul class="errors"></ul>
+
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#main-info"> Esasy</a></li>
+            <li><a data-toggle="tab" href="#additional-info"> Goşmaça Maglumatlar</a></li>
+            <li><a data-toggle="tab" href="#passport-details">Pasport Maglumatlary</a></li>
+          </ul>
+
+          <div class="tab-content">
+
+            <div id="main-info" class="tab-pane active">
+              <div class="panel-body">
+
+                  <div class="form-group">
+                    <%= f.label "Suraty : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :photo_url, :type => "text", class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Ady : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :first_name, :type => "text", class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Familiýasy : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :last_name, :type => "text", class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Atasynyň Ady : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :patronymic, :type => "text", class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Doglan Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.date_select :dob, :start_year => 1900, :end_year => 2010, :type => "text", class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Erkek/Zenan: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.check_box :gender, class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Milleti : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.collection_select(:nationality_id, @nationalities, :id, :nationality_title, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Bellikler : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_area :notes, :type => "text",class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+              </div>
+            </div>
+
+            <div id="additional-info" class="tab-pane">
+              <div class="panel-body">
+
+                <div class="form-group">
+                  <%= f.label "Maşgala ýagdaýy : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.collection_select(:marital_status_id, @marital_statuses, :id, :marital_status_title, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Ýerli ? : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.check_box :is_local, class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+                <div class="form-group">
+                  <%= f.label "Gulluk borçly ? : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                  <div class="col-sm-8"><%= f.check_box :is_military_liable, class: "form-control" %></div>
+                </div>
+
+                <br><br>
+
+              </div>
+            </div>
+
+            <div id="passport-details" class="tab-pane">
+              <div class="panel-body">
+
+                  <div class="form-group">
+                    <%= f.label "Pasport Seriýasy  : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :local_passport_serial, class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Pasport Belgisi : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :local_passport_no, class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Berlen Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.date_select :local_passport_given_date, :start_year => 1950,class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Beren Kärhana : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :local_passport_issued_by, class: "form-control" %></div>
+                  </div>
+
+                  <br><br>
+
+                  <div class="form-group">
+                    <%= f.label "Pasport Suraty : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                    <div class="col-sm-8"><%= f.text_field :local_passport_scan_url, class: "form-control" %></div>
+                  </div>
+
+              </div>
+            </div>
+
+          </div>    <!-- div tab-content -->
+        </div>  <!-- div modal-body -->
+
+        <div class="modal-footer">
+          <%= f.submit "Kabul Et", class: "btn btn-primary" %>
+          <%= link_to "Goýbolsun", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  certificate_type_id: 
+  certificate_title: MyString
+  certificate_no: MyString
+  issued_by: MyString
+  issued_date: 2018-01-09
+  expiry_date: 2018-01-09
+  notes: MyText
+
+two:
+  employee_id: 
+  certificate_type_id: 
+  certificate_title: MyString
+  certificate_no: MyString
+  issued_by: MyString
+  issued_date: 2018-01-09
+  expiry_date: 2018-01-09
+  notes: MyText

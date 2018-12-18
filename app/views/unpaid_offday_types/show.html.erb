@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>UnPaid offday type title:</strong>
+  <%= @unpaid_offday_type.unpaid_offday_type_title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @unpaid_offday_type.notes %>
+</p>
+
+<%= link_to 'Edit', edit_unpaid_offday_type_path(@unpaid_offday_type) %> |
+<%= link_to 'Back', unpaid_offday_types_path %>

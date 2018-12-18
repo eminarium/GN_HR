@@ -1,0 +1,9 @@
+<% @release_reasons.each do |release_reason| %>
+    <tr>
+      <td><%= release_reason.release_reason_title %></td>
+      <td><%= release_reason.notes %></td>
+      <td><%= link_to "Giňişleýin", release_reason, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_release_reason_path(release_reason), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", release_reason_delete_path(release_reason), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

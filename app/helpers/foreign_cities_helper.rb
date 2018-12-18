@@ -1,0 +1,2 @@
+module ForeignCitiesHelper
+end

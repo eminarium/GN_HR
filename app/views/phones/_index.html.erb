@@ -1,0 +1,11 @@
+<% @phones.each do |phone| %>
+    <tr>
+      <td><%= phone.employee.last_name+" "+phone.employee.first_name+" "+phone.employee.patronymic %></td>
+      <td><%= phone.phone_no %></td>
+      <td><%= phone.phone_type.phone_type_title %></td>
+      <td><%= phone.notes %></td>
+      <td><%= link_to "Giňişleýin", phone, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_phone_path(phone), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz",phone_delete_path(phone), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

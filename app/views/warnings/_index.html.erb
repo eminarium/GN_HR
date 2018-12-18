@@ -1,0 +1,13 @@
+<% @warnings.each do |warning| %>
+    <tr>
+      <td><%= warning.employee.first_and_last_name %></td>
+      <td><%= warning.order.order_no  %></td>
+      <td><%= warning.warning_reason %></td>
+      <td><%= warning.notes %></td>
+
+      <td><%= link_to "Giňişleýin", warning, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_warning_path(warning), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", warning_delete_path(warning), remote: true, class: "btn btn-danger" %></td>
+
+    </tr>
+<% end %>

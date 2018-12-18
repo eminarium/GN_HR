@@ -1,0 +1,3 @@
+$("#employee-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Işgär Maglumatyny Üýtget  - <i><b><%= @employee.first_and_last_name %></b></i></h3>");
+$("#employee-modal").modal("show")

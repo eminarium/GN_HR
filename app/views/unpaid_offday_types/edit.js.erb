@@ -1,0 +1,3 @@
+$("#unpaid_offday_type-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Tölegsiz Rugsat Maglumatyny Üýtget  - <i><b><%= @unpaid_offday_type.unpaid_offday_type_title %></b></i></h3>");
+$("#unpaid_offday_type-modal").modal("show")

@@ -1,0 +1,16 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="color-line"></div>
+    <div class="modal-header">
+      <h3>Millet Boz</h3>
+    </div>
+    <div class="modal-body">
+      <ul class="errors"></ul>
+      <b>'<%= @nationality.nationality_title %>'</b> bozmagy tassyklaýarsyňyzmy ?
+    </div>
+    <div class="modal-footer">
+      <%= link_to "Hawa, Saýlanany bozmaly !", nationality_path(@nationality), method: :delete, remote: true, class: "btn btn-danger" %>
+      <%= link_to "Ýok", "#", class: "btn btn-default", data: { dismiss: "modal" } %>
+    </div>
+  </div>
+</div>

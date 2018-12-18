@@ -1,0 +1,3 @@
+$("#position-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Wezipe Maglumatyny Üýtget  - <i><b><%= @position.position_title %></b></i></h3>");
+$("#position-modal").modal("show")

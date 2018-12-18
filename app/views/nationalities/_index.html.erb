@@ -1,0 +1,9 @@
+<% @nationalities.each do |nationality| %>
+    <tr>
+      <td><%= nationality.nationality_title %></td>
+      <td><%= nationality.notes %></td>
+      <td><%= link_to "Giňişleýin", nationality, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_nationality_path(nationality), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", nationality_delete_path(nationality), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

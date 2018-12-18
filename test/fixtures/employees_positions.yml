@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  position_id: 
+  position_type_id: 
+  is_released: false
+  is_changed: false
+  assigned_date: 2018-01-11
+  released_date: 2018-01-11
+  release_reason_id: 
+  is_temporary: false
+  temporary_start_date: 2018-01-11
+  temporary_end_date: 2018-01-11
+  notes: MyText
+
+two:
+  employee_id: 
+  position_id: 
+  position_type_id: 
+  is_released: false
+  is_changed: false
+  assigned_date: 2018-01-11
+  released_date: 2018-01-11
+  release_reason_id: 
+  is_temporary: false
+  temporary_start_date: 2018-01-11
+  temporary_end_date: 2018-01-11
+  notes: MyText

@@ -1,0 +1,9 @@
+<% @unpaid_offday_types.each do |unpaid_offday_type| %>
+    <tr>
+      <td><%= unpaid_offday_type.unpaid_offday_type_title %></td>
+      <td><%= unpaid_offday_type.notes %></td>
+      <td><%= link_to "Giňişleýin", unpaid_offday_type, class: "btn btn-info"  %></td>
+      <td><%= link_to "Üýtget", edit_unpaid_offday_type_path(unpaid_offday_type), remote: true, class: "btn btn-warning" %></td>
+      <td><%= link_to "Boz", unpaid_offday_type_delete_path(unpaid_offday_type), remote: true, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>

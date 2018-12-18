@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @unpaid_offday_type.errors.any? %>
+    <% @unpaid_offday_type.errors.full_messages.each do |message| %>
+        $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    <% end %>
+<% else %>
+    $(".unpaid_offday_type-index").html("<%= escape_javascript(render 'index') %>")
+    $("#unpaid_offday_type-modal").modal("hide")
+<% end %>

@@ -1,0 +1,156 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="color-line"></div>
+
+    <div class="modal-header text-center">
+      <h4 class="modal-title">Modal title</h4>
+      <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+    </div>
+
+    <%= form_for @employees_position, remote: true, html: { style: "display:inline;" } do |f| %>
+
+        <div class="modal-body">
+          <ul class="errors"></ul>
+
+
+
+          <div class="hpanel">
+                      <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#tab-1"> Wezipä Bellemek</a></li>
+                          <li class=""><a data-toggle="tab" href="#tab-2">Wezipeden Boşatmak</a></li>
+                      </ul>
+                      <div class="tab-content">
+                          <div id="tab-1" class="tab-pane active">
+                              <div class="panel-body">
+
+                                <div class="form-group">
+                                  <%= f.label "Işgär : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.collection_select(:employee_id, @employees, :id, :first_and_last_name, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Wezipesi : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.collection_select(:position_id, @positions, :id, :position_and_department, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Iş Görnüşi : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.collection_select(:position_type_id, @position_types, :id, :position_type_title, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Bellenen Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.date_select :assigned_date, :start_year => 1900, :end_year => 2020, :type => "text", class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Buýrugy : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.collection_select(:assign_order_id, @assign_orders, :id, :order_no_and_date, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Möhletleýin : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.check_box :is_temporary, class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Möhletleýin Başl. Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.date_select :temporary_start_date, :start_year => 1900, :end_year => 2020, :type => "text", class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Möhletleýin Tamaml. Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.date_select :temporary_end_date, :start_year => 1900, :end_year => 2020, :type => "text", class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Bellikler : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.text_area :assign_notes, :type => "text",class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                              </div>
+                          </div>
+                          <div id="tab-2" class="tab-pane">
+                              <div class="panel-body">
+
+                                <div class="form-group">
+                                  <%= f.label "Buýrugy : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.collection_select(:release_order_id, @release_orders, :id, :order_no_and_date, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Boşadylan Senesi: ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.date_select :released_date, :start_year => 1900, :end_year => 2018, :type => "text", class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Boşadylmagynyň Sebäbi : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.collection_select(:release_reason_id, @release_reasons, :id, :release_reason_title, :include_blank => t("Please_select"), :class => "form-control" ) %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Wezipe Üýtgedilen : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.check_box :is_changed, class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Işden Çykarylan : ", class:"col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.check_box :is_released, class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                                <div class="form-group">
+                                  <%= f.label "Bellikler : ", class: "col-sm-4 control-label", style: "text-align:right" %>
+                                  <div class="col-sm-8"><%= f.text_area :release_notes, :type => "text",class: "form-control" %></div>
+                                </div>
+
+                                <br><br><br>
+
+                              </div>
+                          </div>
+                      </div>
+          </div>
+
+
+
+          <br><br><br>
+
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit "Kabul Et", class: "btn btn-primary" %>
+          <%= link_to "Goýbolsun", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

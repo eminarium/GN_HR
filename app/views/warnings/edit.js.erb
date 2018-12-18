@@ -1,0 +1,3 @@
+$("#warning-modal").html("<%= escape_javascript(render 'edit') %>")
+$(".modal-header").html("<h3> Temmi Maglumatyny Üýtget  - <i><b><%= @warning.id %></b></i></h3>");
+$("#warning-modal").modal("show")
